@@ -25,12 +25,12 @@ Each part of the notebook will:
 **3.** Display convergence plots, load distributions, and summary tables
 
 ### Example output:
-
+```python
 Iteration 200/200 -> Best bins: 13
 Best overall solution used 13 bins
  Bin 0: load=99, items=[45, 54]
  ...
-
+```
 **To run**: open the notebook → run cells in order → view results and plots.
 
   
