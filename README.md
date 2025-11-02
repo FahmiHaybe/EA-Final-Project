@@ -24,7 +24,7 @@ Each part of the notebook will:
 
 **3.** Display convergence plots, load distributions, and summary tables
 
-## Example output:
+### Example output:
 
 Iteration 200/200 -> Best bins: 13
 Best overall solution used 13 bins
