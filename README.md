@@ -1,5 +1,39 @@
 # EA-Final-Project
 
+## Bin Packing Optimization using Ant Colony Optimization (ACO)
+
+In order to minimize the number of bins required to pack all products inside a certain capacity, this project uses Ant Colony Optimization (ACO) to solve the Bin Packing Problem.
+
+### Features:
+
+- **Customizable Parameters**: Modify temperature, pheromone decay, ants, and iterations.
+- **Heuristic + Pheromone Search**: Integrates residual-space heuristics with pheromone learning.
+- **Rank-Based Updates**: Reinforces pheromones for top-performing solutions.
+- **Visualization**: Plots of convergence and load distribution for every instance of the dataset.
+- **Performance metrics**: include runtime, bins used, unused space, and comparison with the most well-known outcomes.
+
+### How to Run:
+Eight u120 instances were combined into one JSON file named binpack_u120.json. Each problem includes the instance name, bin capacity, best-known solution, and a list of item sizes. 
+
+You just have to run the notebook cells one by one to execute the algorithm.
+Each part of the notebook will:
+
+**1.** Load the dataset (binpack_u120.json)
+
+**2.** Run ACO on each problem instance
+
+**3.** Display convergence plots, load distributions, and summary tables
+
+## Example output:
+
+Iteration 200/200 -> Best bins: 13
+Best overall solution used 13 bins
+ Bin 0: load=99, items=[45, 54]
+ ...
+
+**To run**: open the notebook → run cells in order → view results and plots.
+
+  
 
 ## Optimize Classic Benchmark Functions using Particle Swarm Optimization (PSO)
 
