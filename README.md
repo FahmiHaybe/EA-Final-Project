@@ -61,3 +61,41 @@ np.random.seed(42)
 for num_dimensions in [2, 10, 30]:
     results = run_experimental(num_dimensions=num_dimensions)
     plot_boxplots(results, num_dimensions)
+```
+## 0-1 Knapsack Optimization using Bees Algorithm (BA)
+The 0-1 Knapsack issue is a traditional combinatorial optimization issue where the objective is to maximize the total value of items in a knapsack without going over its weight capacity. This project uses the Bees Algorithm (BA) to solve the problem. The technique, which combines local search, probabilistic selection, and adaptive exploration to effectively explore the solution space, is modeled after the natural foraging behavior of honeybees.
+
+### Features
+- **Customizable Parameters**: Adjust the number of bees, onlooker bees, limit for scout phase, number of iterations, and neighborhood exploration settings.
+- **Greedy Initialization**: Includes a heuristic-based starting solution using the best value-to-weight ratio.
+- **Neighborhood Search**: Employs bit-flipping to explore solutions locally.
+- **Scout Phase**: Introduces new random solutions to prevent premature convergence.
+- **Repair Mechanism**: Ensures feasibility by removing items if the total weight exceeds capacity.
+- **Convergence Visualization**: Tracks best and average fitness values over iterations.
+- **Performance Metrics**: Reports best-found solutions, percentage of known optimum, runtime, and stability across multiple runs.
+
+### How to run
+**1.** Create instances of your knapsack problems (such as WEING1, WEING2, WEISH01, WEISH02, WEISH19, and WEISH20) with values, weights, and capacity in a JSON or Python-friendly format.
+**2.** Run the given Python script or notebook cells one after the other. Every action will:
+
+   - Open the dataset.
+
+   - Set up the population of bees.
+
+   - Execute the Bees Algorithm repeatedly.
+
+   - Use local machinery for scouting, repair, and search.
+
+   - For convergence analysis, note the best and average fitness.
+**3.** View convergence plots and solution statistics for each instance.
+
+### Example output
+```python
+Dataset WEING1 -> Best value: 1650
+Selected items: [2, 5, 7, 10]
+Total weight: 50
+Achieved: 100% of known optimum
+Runtime: 0.12 seconds
+
+Convergence plot generated for first run.
+```
