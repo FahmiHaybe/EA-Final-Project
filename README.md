@@ -76,17 +76,9 @@ The 0-1 Knapsack issue is a traditional combinatorial optimization issue where t
 
 ### How to run
 **1.** Create instances of your knapsack problems (such as WEING1, WEING2, WEISH01, WEISH02, WEISH19, and WEISH20) with values, weights, and capacity in a JSON or Python-friendly format.
-**2.** Run the given Python script or notebook cells one after the other. Every action will:
 
-   - Open the dataset.
+**2.** Run the given Python script or notebook cells one after the other. Every action will: 1. Open the dataset. 2. Set up the population of bees. 3. Execute the Bees Algorithm repeatedly use local machinery for scouting, repair, and search. 4. Record best and average fitness for convergence analysis
 
-   - Set up the population of bees.
-
-   - Execute the Bees Algorithm repeatedly.
-
-   - Use local machinery for scouting, repair, and search.
-
-   - For convergence analysis, note the best and average fitness.
 **3.** View convergence plots and solution statistics for each instance.
 
 ### Example output
