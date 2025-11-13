@@ -1,6 +1,6 @@
 # EA-Final-Project
 
-## Bin Packing Optimization using Ant Colony Optimization (ACO)
+## Bin Packing using Ant Colony Optimization (ACO)
 
 In order to minimize the number of bins required to pack all products inside a certain capacity, this project uses Ant Colony Optimization (ACO) to solve the Bin Packing Problem.
 
