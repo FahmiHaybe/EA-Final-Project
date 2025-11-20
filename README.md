@@ -91,37 +91,61 @@ Runtime: 0.12 seconds
 
 Convergence plot generated for first run.
 ```
+
 ## Solving FrozenLake with Reinforcement Learning (Q-Learning)
 In this project, the FrozenLake-v1 environment from Gymnasium is solved using Tabular Q-Learning. The objective is to teach an agent how to safely go from a start tile (S) to a goal tile (G) in a slippery grid world while avoiding holes (H). The performance of the trained agent is compared to both a basic heuristic policy and a random policy baseline.
 
 ### Features: 
 - **Customizable RL Hyperparameters**: Modify learning rate, discount factor, epsilon decay schedule, and training duration.
-
 - **Greedy Exploration:** Supports both linear and exponential epsilon decay strategies.
-
 - **Tabular Q-Learning Agent:** Uses a Q-table of size (n_states × n_actions), updated using temporal-difference learning.
-
 - **Baseline Comparisons Includes:**
-  Random Policy
-  Heuristic “go toward the goal” police
-  Trained Q-learning policy
-
-- **Environment Understanding Tools:** Grid visualization, reward structure explanation, and transition uncertainty due to slippage.
-
+  - Random Policy (uniform random action selection)
+  - Heuristic “go toward the goal” police
+  - Trained Q-learning policy
+- **Environment Understanding Tools:**
+  - Grid visualization with labeled components
+  - Reward structure explanation
+  - Stochastic transition dynamic (slippery floor with 2/3 slip probability)
 - **Training & Evaluation Plots:**
-  Episode rewards
-  Moving averages
-  Success rate curves
-  Episode lengths
-  Algorithm comparison bar plots
-
+  - Episode rewards with moving averages (500-episode window)
+  - Cumulative reward over training
+  - Success rate curves
+  - Episode length distributions
+  - Algorithm comparison bar charts
 - **Multiple Map Sizes:**
 Runs experiments on 6×6 and 8×8 FrozenLake grids.
 
-### How to run:
-Four tests that mix two map sizes (6x6 and 8x8) with two epsilon decay algorithms (linear and exponential) are automatically executed by the notebook. FrozenLake-v1 is depicted with unique random maps for each experiment, the state and action spaces, reward structure, and slippery transition dynamics are printed, and the grid layout displaying the start, frozen tiles, holes, and goal is visualized. After then, the Q-learning agent is trained by using an ε-greedy strategy to choose actions, using temporal-difference learning to update the Q-table, and monitoring episode length, success rate, and rewards. Following training, the experiment assesses three policies, reporting metrics like success rate, average number of steps, and average reward: the trained Q-learning agent, a random-action baseline, and a straightforward heuristic that advances greedily toward the goal. Lastly, the software generates a number of visualizations, such as cumulative reward graphs, training curves, moving success rate plots, and a comparison plot that displays the effectiveness of every policy.
+## How to run:
+The code automatically executes experiments combining two map sizes (6×6, 8×8) with two epsilon decay strategies (linear, exponential)
 
-### Example output:
+### Main Experiments (4 configurations)
+1. **Environment Setup:** Creates FrozenLake-v1 environment with deterministic map generation (seed-based)
+2. **Visualization:** Displays grid layout showing start (S), frozen tiles (F), holes (H) and goal (G)
+3. **Training:** Runs 20,000 episodes of Q-learning with:
+  - ε-greedy action selection
+  - Temporal-difference Q-table updates
+  - Tracking of rewards, success rate and episode length
+4. **Evaluation:** Tests three policies over 10,000 episodes each:
+  - Trained Q-learning agent (greedy evaluation)
+  - Random baseline (uniform random actions)
+  - Heuiristic baseline (moves toward goal)
+5. **Visualization:** Generates training curves, success rate plots and performance comparison charts
+
+
+## Example output:
+### Grid Visualization
+```python
+SFFFHF
+FFFFFH
+FHHFFF
+HFFFFF
+FFFHFF
+FFFHFG
+```
+
+### Performance Metrics
+
 ```python
 --- Evaluating trained Q-learning policy ---
 Q-Learning - Success Rate: 57.80%, Avg Steps: 78.64, Avg Reward: 0.578
@@ -132,13 +156,14 @@ Random Policy - Success Rate: 0.21%, Avg Steps: 8.27
 --- Evaluating heuristic policy baseline ---
 Heuristic Policy - Success Rate: 5.20%, Avg Steps: 7.92
 ```
-**Training output also prints the grid:**
-```python
-SFFFHF
-FFFFFH
-FHHFFF
-HFFFFF
-FFFHFF
-FFFHFG
-```
 
+## Hyperparameters
+**Default Configuration:**
+  - Learning rate (α): 0.8
+  - Discount Factor (γ): 0.995
+  - Initial Epsilon (ε₀): 1.0
+  - Final Epsilon (ε_min): 0.001
+  - Exponential Decay Rate: 0.999
+  - Training Episodes: 20,000
+  - Evaluation Episodes: 10,000
+  - Episode Step Limit: 200 (safety cutoff)
